@@ -92,23 +92,23 @@ export default function HomePage() {
       <div className="absolute right-0 top-1/3 -z-0 h-80 w-80 rounded-full bg-amber-100/50 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-20 pt-8 lg:px-10">
-        <header className="mb-20 flex flex-wrap items-center justify-between gap-4 rounded-full border border-indigo-100 bg-white/80 px-6 py-3 shadow-panel backdrop-blur">
-          <div>
+        <header className="mb-12 sm:mb-20 flex items-center justify-between gap-3 rounded-2xl sm:rounded-full border border-indigo-100 bg-white/80 px-4 sm:px-6 py-3 shadow-panel backdrop-blur">
+          <div className="min-w-0 flex-1">
             <p className="font-plex text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">
               Alpha Biologix
             </p>
-            <p className="font-plex text-sm text-slate-600">Premium Peptides for Medical Professionals</p>
+            <p className="hidden sm:block font-plex text-sm text-slate-600">Premium Peptides for Medical Professionals</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <a
               href="tel:305-315-5188"
-              className="font-plex text-sm font-medium text-slate-700 transition hover:text-indigo-600"
+              className="hidden md:block font-plex text-sm font-medium text-slate-700 transition hover:text-indigo-600"
             >
               305-315-5188
             </a>
             <Link
               href="/login"
-              className="rounded-full border border-indigo-200 px-4 py-2 font-plex text-sm font-semibold text-indigo-600 transition hover:border-indigo-400"
+              className="rounded-full border border-indigo-200 px-3 sm:px-4 py-2 font-plex text-xs sm:text-sm font-semibold text-indigo-600 transition hover:border-indigo-400 whitespace-nowrap"
             >
               Doctor Portal
             </Link>
