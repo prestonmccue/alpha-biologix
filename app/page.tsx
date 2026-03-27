@@ -19,7 +19,7 @@ import { Reveal } from '@/components/reveal';
 import { ScienceDecor } from '@/components/science-decor';
 
 const valueBadges = [
-  { label: 'Research-Grade Purity', icon: BadgeCheck },
+  { label: 'Pharmaceutical-Grade Purity', icon: BadgeCheck },
   { label: 'Nationwide Shipping', icon: Truck },
   { label: 'Doctor-Exclusive Access', icon: UserRoundCheck },
   { label: 'Fast Turnaround', icon: Clock3 }
@@ -131,7 +131,7 @@ export default function HomePage() {
 
           <Reveal delay={180}>
             <p className="mt-6 max-w-2xl font-plex text-lg leading-relaxed text-slate-700">
-              Research-grade peptides delivered directly to your practice. Trusted by doctors nationwide.
+              Pharmaceutical-grade peptides delivered directly to your practice. Trusted by doctors nationwide.
             </p>
           </Reveal>
 

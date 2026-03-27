@@ -18,7 +18,7 @@ const ibmPlexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: 'Alpha Biologix | Premium Peptides for Medical Professionals',
   description:
-    'Alpha Biologix supplies research-grade peptides to licensed medical professionals with verified quality, transparent documentation, and nationwide distribution.'
+    'Alpha Biologix supplies pharmaceutical-grade peptides to licensed medical professionals with verified quality, transparent documentation, and nationwide distribution.'
 };
 
 export default function RootLayout({
