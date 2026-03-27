@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import {
   Activity,
@@ -17,72 +19,51 @@ import {
 } from 'lucide-react';
 import { Reveal } from '@/components/reveal';
 import { ScienceDecor } from '@/components/science-decor';
-
-const valueBadges = [
-  { label: 'Pharmaceutical-Grade Purity', icon: BadgeCheck },
-  { label: 'Nationwide Shipping', icon: Truck },
-  { label: 'Doctor-Exclusive Access', icon: UserRoundCheck },
-  { label: 'Fast Turnaround', icon: Clock3 }
-];
-
-const reasons = [
-  'Third-party tested for purity',
-  'Consistent batch-to-batch quality',
-  'Dedicated account managers',
-  'Competitive wholesale pricing',
-  'Cold-chain shipping when required',
-  'Comprehensive COAs (Certificate of Analysis)'
-];
-
-const categories = [
-  {
-    title: 'Weight Management',
-    desc: 'GLP-1 peptides, metabolic support',
-    icon: Activity
-  },
-  {
-    title: 'Performance & Recovery',
-    desc: 'BPC-157, TB-500, recovery peptides',
-    icon: Dumbbell
-  },
-  {
-    title: 'Anti-Aging & Longevity',
-    desc: 'Epithalon, GHK-Cu, longevity peptides',
-    icon: Sparkles
-  },
-  {
-    title: 'Sexual Health',
-    desc: 'PT-141, related peptides',
-    icon: HeartPulse
-  },
-  {
-    title: 'Cognitive Enhancement',
-    desc: 'Semax, Selank, nootropic peptides',
-    icon: Brain
-  },
-  {
-    title: 'Immune Support',
-    desc: 'Thymosin peptides, immune modulators',
-    icon: ShieldCheck
-  }
-];
-
-const qualityChecks = [
-  'Every batch tested',
-  '99%+ purity standard',
-  'Full documentation provided',
-  'USP-grade materials',
-  'cGMP-compliant sourcing'
-];
-
-const steps = [
-  'Apply for an account (doctor verification)',
-  'Browse our peptide catalog',
-  'Place your order',
-  'Receive with full documentation'
-];
+import { useLanguage } from '@/lib/language-context';
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
+  const valueBadges = [
+    { label: t('pharmaceuticalGrade'), icon: BadgeCheck },
+    { label: t('nationwideShipping'), icon: Truck },
+    { label: t('doctorExclusive'), icon: UserRoundCheck },
+    { label: t('fastTurnaround'), icon: Clock3 }
+  ];
+
+  const reasons = [
+    t('reason1'),
+    t('reason2'),
+    t('reason3'),
+    t('reason4'),
+    t('reason5'),
+    t('reason6')
+  ];
+
+  const categories = [
+    { title: t('weightManagement'), desc: t('weightManagementDesc'), icon: Activity },
+    { title: t('performanceRecovery'), desc: t('performanceRecoveryDesc'), icon: Dumbbell },
+    { title: t('antiAging'), desc: t('antiAgingDesc'), icon: Sparkles },
+    { title: t('sexualHealth'), desc: t('sexualHealthDesc'), icon: HeartPulse },
+    { title: t('cognitiveEnhancement'), desc: t('cognitiveEnhancementDesc'), icon: Brain },
+    { title: t('immuneSupport'), desc: t('immuneSupportDesc'), icon: ShieldCheck }
+  ];
+
+  const qualityChecks = [
+    t('quality1'),
+    t('quality2'),
+    t('quality3'),
+    t('quality4'),
+    t('quality5')
+  ];
+
+  const steps = [
+    t('step1'),
+    t('step2'),
+    t('step3'),
+    t('step4')
+  ];
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-slate-50 text-slate-900">
       <ScienceDecor />
@@ -97,7 +78,7 @@ export default function HomePage() {
             <p className="font-plex text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">
               Alpha Biologix
             </p>
-            <p className="hidden sm:block font-plex text-sm text-slate-600">Premium Peptides for Medical Professionals</p>
+            <p className="hidden sm:block font-plex text-sm text-slate-600">{t('tagline')}</p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <a
@@ -110,7 +91,7 @@ export default function HomePage() {
               href="/login"
               className="rounded-full border border-indigo-200 px-3 sm:px-4 py-2 font-plex text-xs sm:text-sm font-semibold text-indigo-600 transition hover:border-indigo-400 whitespace-nowrap"
             >
-              Doctor Portal
+              {t('doctorPortal')}
             </Link>
           </div>
         </header>
@@ -119,19 +100,19 @@ export default function HomePage() {
           <Reveal>
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/90 px-4 py-2 font-plex text-xs font-semibold uppercase tracking-[0.16em] text-indigo-700">
               <FlaskConical className="h-4 w-4" />
-              B2B Peptide Supply Partner
+              {t('heroBadge')}
             </p>
           </Reveal>
 
           <Reveal delay={90}>
             <h1 className="max-w-4xl font-manrope text-5xl font-bold leading-tight text-slate-950 sm:text-6xl">
-              Premium Peptides for Medical Professionals
+              {t('heroTitle')}
             </h1>
           </Reveal>
 
           <Reveal delay={180}>
             <p className="mt-6 max-w-2xl font-plex text-lg leading-relaxed text-slate-700">
-              Pharmaceutical-grade peptides delivered directly to your practice. Trusted by doctors nationwide.
+              {t('heroSubtitle')}
             </p>
           </Reveal>
 
@@ -152,21 +133,21 @@ export default function HomePage() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-indigo to-brand-violet px-6 py-3 font-plex text-sm font-semibold text-white shadow-glow transition hover:scale-[1.02]"
             >
-              Get Started
+              {t('getStarted')}
               <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               href="/login"
               className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white px-6 py-3 font-plex text-sm font-semibold text-indigo-700 transition hover:border-indigo-400"
             >
-              Doctor Portal
+              {t('doctorPortal')}
               <Microscope className="h-4 w-4" />
             </Link>
           </Reveal>
         </section>
 
         <Reveal className="mb-24 rounded-3xl border border-indigo-100 bg-white/90 p-8 shadow-panel backdrop-blur sm:p-10">
-          <h2 className="mb-6 font-manrope text-3xl font-semibold text-slate-950">Why Alpha Biologix</h2>
+          <h2 className="mb-6 font-manrope text-3xl font-semibold text-slate-950">{t('whyTitle')}</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, index) => (
               <div key={reason} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -179,12 +160,7 @@ export default function HomePage() {
 
         <section className="mb-24">
           <Reveal>
-            <h2 className="mb-4 font-manrope text-3xl font-semibold text-slate-950">Peptide Categories</h2>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="mb-8 max-w-3xl font-plex text-slate-600">
-              Tailored peptide portfolios for clinics, telehealth providers, and specialty practices.
-            </p>
+            <h2 className="mb-4 font-manrope text-3xl font-semibold text-slate-950">{t('categoriesTitle')}</h2>
           </Reveal>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -202,7 +178,7 @@ export default function HomePage() {
 
         <section id="quality" className="mb-24 grid gap-8 lg:grid-cols-2">
           <Reveal className="rounded-3xl border border-indigo-100 bg-gradient-to-br from-white to-indigo-50 p-8 shadow-panel">
-            <h2 className="mb-6 font-manrope text-3xl font-semibold text-slate-950">Quality Assurance</h2>
+            <h2 className="mb-6 font-manrope text-3xl font-semibold text-slate-950">{t('qualityTitle')}</h2>
             <div className="space-y-4">
               {qualityChecks.map((item) => (
                 <div key={item} className="flex items-start gap-3">
@@ -214,7 +190,7 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={90} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-panel">
-            <h2 className="mb-6 font-manrope text-3xl font-semibold text-slate-950">How It Works</h2>
+            <h2 className="mb-6 font-manrope text-3xl font-semibold text-slate-950">{t('howItWorksTitle')}</h2>
             <ol className="space-y-4">
               {steps.map((step, index) => (
                 <li key={step} className="flex items-start gap-4 rounded-2xl bg-slate-50 p-4">
@@ -228,34 +204,16 @@ export default function HomePage() {
           </Reveal>
         </section>
 
-        <Reveal className="mb-24 rounded-3xl border border-indigo-200 bg-white p-8 shadow-panel sm:p-10">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <div>
-              <h2 className="font-manrope text-3xl font-semibold text-slate-950">Doctor Portal (Gated)</h2>
-              <p className="mt-2 max-w-2xl font-plex text-slate-600">
-                Existing providers can access ordering tools and account resources through our secure portal. New practices can request access below.
-              </p>
-            </div>
-            <Link
-              href="/login"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 font-plex text-sm font-semibold text-white transition hover:bg-slate-800"
-            >
-              Open Login Page
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </Reveal>
-
         <section id="contact" className="mb-20 grid gap-8 lg:grid-cols-5">
           <Reveal className="lg:col-span-3 rounded-3xl border border-indigo-100 bg-white p-8 shadow-panel">
-            <h2 className="font-manrope text-3xl font-semibold text-slate-950">Partner with Alpha Biologix</h2>
+            <h2 className="font-manrope text-3xl font-semibold text-slate-950">{t('contactTitle')}</h2>
             <p className="mt-3 font-plex text-sm text-slate-600">
-              Tell us about your practice and peptide needs. Our team will follow up with next steps.
+              {t('contactSubtitle')}
             </p>
 
             <form className="mt-8 grid gap-4 sm:grid-cols-2">
               <label className="block">
-                <span className="font-plex text-sm font-medium text-slate-700">Name</span>
+                <span className="font-plex text-sm font-medium text-slate-700">{t('nameLabel')}</span>
                 <input
                   type="text"
                   className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-plex text-sm outline-none transition focus:border-indigo-400 focus:bg-white"
@@ -264,7 +222,7 @@ export default function HomePage() {
               </label>
 
               <label className="block">
-                <span className="font-plex text-sm font-medium text-slate-700">Email</span>
+                <span className="font-plex text-sm font-medium text-slate-700">{t('emailLabel')}</span>
                 <input
                   type="email"
                   className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-plex text-sm outline-none transition focus:border-indigo-400 focus:bg-white"
@@ -273,16 +231,15 @@ export default function HomePage() {
               </label>
 
               <label className="block sm:col-span-2">
-                <span className="font-plex text-sm font-medium text-slate-700">Practice Name</span>
+                <span className="font-plex text-sm font-medium text-slate-700">{t('practiceLabel')}</span>
                 <input
                   type="text"
                   className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-plex text-sm outline-none transition focus:border-indigo-400 focus:bg-white"
-                  placeholder="Practice / Clinic Name"
                 />
               </label>
 
               <label className="block">
-                <span className="font-plex text-sm font-medium text-slate-700">Phone</span>
+                <span className="font-plex text-sm font-medium text-slate-700">{t('phoneLabel')}</span>
                 <input
                   type="tel"
                   className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-plex text-sm outline-none transition focus:border-indigo-400 focus:bg-white"
@@ -291,11 +248,11 @@ export default function HomePage() {
               </label>
 
               <label className="block sm:col-span-2">
-                <span className="font-plex text-sm font-medium text-slate-700">Message</span>
+                <span className="font-plex text-sm font-medium text-slate-700">{t('messageLabel')}</span>
                 <textarea
                   rows={4}
                   className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-plex text-sm outline-none transition focus:border-indigo-400 focus:bg-white"
-                  placeholder="Tell us about your peptide inventory goals"
+                  placeholder={t('messagePlaceholder')}
                 />
               </label>
 
@@ -303,34 +260,34 @@ export default function HomePage() {
                 type="button"
                 className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-indigo to-brand-violet px-6 py-3 font-plex text-sm font-semibold text-white shadow-glow transition hover:brightness-110"
               >
-                Submit Inquiry
+                {t('submitInquiry')}
                 <ArrowRight className="h-4 w-4" />
               </button>
             </form>
           </Reveal>
 
           <Reveal delay={100} className="lg:col-span-2 rounded-3xl border border-slate-200 bg-white p-8 shadow-panel">
-            <h3 className="font-manrope text-2xl font-semibold text-slate-950">Contact Information</h3>
+            <h3 className="font-manrope text-2xl font-semibold text-slate-950">{t('contactInfoTitle')}</h3>
             <div className="mt-6 space-y-5 font-plex text-sm text-slate-700">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">Address</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">{t('addressLabel')}</p>
                 <p className="mt-1">7245 Southwest 57th Court, South Miami, Florida 33143</p>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">Phone</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">{t('phoneContactLabel')}</p>
                 <a href="tel:3053155188" className="mt-1 block hover:text-indigo-600">
                   305-315-5188
                 </a>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">Email</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">{t('emailContactLabel')}</p>
                 <a href="mailto:info@alphabiorx.com" className="mt-1 block hover:text-indigo-600">
                   info@alphabiorx.com
                 </a>
               </div>
             </div>
             <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-4 font-plex text-xs font-semibold uppercase tracking-[0.12em] text-amber-700">
-              For licensed medical professionals only.
+              {t('disclaimer')}
             </div>
           </Reveal>
         </section>
@@ -340,31 +297,31 @@ export default function HomePage() {
             <div>
               <h4 className="font-manrope text-lg font-semibold text-slate-950">Alpha Biologix</h4>
               <p className="mt-2 font-plex text-sm text-slate-600">
-                Premium peptide supply for modern practices focused on precision outcomes.
+                {t('footerDesc')}
               </p>
             </div>
             <div>
-              <h5 className="font-plex text-sm font-semibold uppercase tracking-[0.14em] text-indigo-600">Quick Links</h5>
+              <h5 className="font-plex text-sm font-semibold uppercase tracking-[0.14em] text-indigo-600">{t('quickLinks')}</h5>
               <ul className="mt-3 space-y-2 font-plex text-sm text-slate-700">
                 <li>
                   <a href="#contact" className="hover:text-indigo-600">
-                    Contact
+                    {t('contact')}
                   </a>
                 </li>
                 <li>
                   <Link href="/login" className="hover:text-indigo-600">
-                    Doctor Portal
+                    {t('doctorPortal')}
                   </Link>
                 </li>
                 <li>
                   <a href="#quality" className="hover:text-indigo-600">
-                    Quality Assurance
+                    {t('qualityAssurance')}
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h5 className="font-plex text-sm font-semibold uppercase tracking-[0.14em] text-indigo-600">Contact Details</h5>
+              <h5 className="font-plex text-sm font-semibold uppercase tracking-[0.14em] text-indigo-600">{t('contactDetails')}</h5>
               <ul className="mt-3 space-y-2 font-plex text-sm text-slate-700">
                 <li>7245 Southwest 57th Court, South Miami, Florida 33143</li>
                 <li>305-315-5188</li>
@@ -373,12 +330,12 @@ export default function HomePage() {
             </div>
           </div>
           <p className="mt-8 border-t border-slate-200 pt-5 font-plex text-xs uppercase tracking-[0.12em] text-slate-500">
-            For licensed medical professionals only.
+            {t('disclaimer')}
           </p>
         </footer>
       </div>
 
-      <Waves className="pointer-events-none absolute bottom-6 right-6 h-10 w-10 text-indigo-300/60" />
+      <Waves className="pointer-events-none absolute bottom-6 right-20 h-10 w-10 text-indigo-300/60" />
     </main>
   );
 }

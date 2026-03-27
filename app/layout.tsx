@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Manrope, IBM_Plex_Sans } from 'next/font/google';
 import './globals.css';
+import { LanguageProvider } from '@/lib/language-context';
+import { LanguageSelector } from '@/components/language-selector';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -29,7 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${ibmPlexSans.variable} antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+          <LanguageSelector />
+        </LanguageProvider>
       </body>
     </html>
   );
